@@ -31,7 +31,7 @@ public class PostProcessDepthGrayscale : MonoBehaviour
             _camerwWithRendTexture = GameObject.Find("CertificateCamera").GetComponent<Camera>();
 
         RenderTexture.active = _camerwWithRendTexture.targetTexture;
-        Texture2D newTexture = new Texture2D(_camerwWithRendTexture.targetTexture.width, _camerwWithRendTexture.targetTexture.height, TextureFormat.RGBA32, false);
+        Texture2D newTexture = new Texture2D(_camerwWithRendTexture.targetTexture.width, _camerwWithRendTexture.targetTexture.height, TextureFormat.R16, false);
         newTexture.ReadPixels(new Rect(0, 0, _camerwWithRendTexture.targetTexture.width, _camerwWithRendTexture.targetTexture.height), 0, 0, false);
 
         newTexture.Apply();

@@ -28,16 +28,13 @@ SubShader{
             }
 
             // Fragment Shader
-            half4 frag(v2f i) : COLOR {
+            half frag(v2f i) : COLOR {
                 float depthValue = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.scrPos)).r);
 
-                half4 depth;
+                half depth;
 
-                depth.r = depthValue;
-                depth.g = depthValue;
-                depth.b = depthValue;
+                depth = depthValue;
 
-                depth.a = 1;
                 return depth;
             }
             ENDCG
